@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Solar Power Calculator — Deepanshu Kaushik</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light">
+
+    <!-- NAV / HEADER -->
+    <header class="navbar">
+        <div class="nav-left">
+            <span class="logo">☀️</span>
+            <h1>Sunergy (Solar Power Calculator)</h1>
+        </div>
+        <div class="nav-right">
+            <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme">🌙</button>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="wrap">
+
+        <!-- CALCULATOR CARD -->
+        <section class="card">
+            <h2 class="card-title">Enter Plant Capacity / Other details (if necessary)</h2>
+
+            <form id="calcForm" class="form-grid" autocomplete="off">
+                <div class="field">
+                    <label for="capacity">Plant Capacity (kW)</label>
+                    <input id="capacity" type="number" placeholder="e.g. 5" min="0" step="0.01" />
+                </div>
+
+                <div class="field">
+                    <label for="unitsPerKW">Units per kW / day</label>
+                    <input id="unitsPerKW" type="number" value="4" min="0" step="0.01" />
+                </div>
+
+                <div class="field">
+                    <label for="costPerUnit">Cost per unit (₹)</label>
+                    <input id="costPerUnit" type="number" value="3.4" min="0" step="0.01" />
+                </div>
+
+                <div class="field">
+                    <label for="monthsPerMonth">Days per Month (for calc)</label>
+                    <select id="monthsPerMonth">
+                        <option value="30">30</option>
+                        <option value="30.4375">Average (365/12)</option>
+                        <option value="31">31</option>
+                    </select>
+                    <div class="tip">
+                    <p>Tip: Use the Average (365/12) option for month-wise calculations if you prefer yearly averaging.</p>
+                </div>
+                </div>
+
+
+                <div class="actions">
+                    <button id="calculateBtn" class="btn primary" type="button">⚡ Calculate</button>
+                    <button id="resetBtn" class="btn ghost" type="button">🔄 Reset</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- RESULTS CARD -->
+        <section class="card results-card" aria-live="polite">
+            <h2 class="card-title">Results</h2>
+            <div class="results-grid" id="resultsGrid">
+                <div class="stat">
+                    <div class="label">Units / Day</div>
+                    <div class="value" id="dayUnits">0.00</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Cost / Day</div>
+                    <div class="value" id="dayCost">₹ 0.00</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Units / Month</div>
+                    <div class="value" id="monthUnits">0.00</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Cost / Month</div>
+                    <div class="value" id="monthCost">₹ 0.00</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Units / Year</div>
+                    <div class="value" id="yearUnits">0.00</div>
+                </div>
+                <div class="stat">
+                    <div class="label">Cost / Year</div>
+                    <div class="value" id="yearCost">₹ 0.00</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOG CARD -->
+        <section class="card log-card">
+            <div class="log-header">
+                <h2 class="card-title">Calculation Log</h2>
+                <div class="log-actions">
+                    <button id="exportBtn" class="btn outline">⬇ Export CSV</button>
+                    <button id="clearLogBtn" class="btn danger">🗑 Clear Log</button>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="log-table" id="logTable">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Capacity (kW)</th>
+                            <th>Units/Day</th>
+                            <th>Units/Month</th>
+                            <th>Units/Year</th>
+                            <th>Cost/Day (₹)</th>
+                            <th>Cost/Month (₹)</th>
+                            <th>Cost/Year (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/adevdeepanshuk" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
+                    class="footer-icon" />
+                LinkedIn
+            </a>
+            <a href="https://www.github.com/Analyst-Dev-Deepanshu-Kaushik" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"
+                    class="footer-icon" />
+                GitHub
+            </a>
+        </div>
+        <p class="footer-text">Made with ❤️ in 🇮🇳 by Deepanshu Kaushik</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
